@@ -17,7 +17,8 @@ def calculate_machining_time(machine_graph, machine):
 
 # Get transport time from previous operation's machine to current operation's machine
 def get_transport_time(machine_graph, machA, machB):
-    return int(machine_graph.edges[machA, machB]['weight'])
+    return 0
+    # return int(machine_graph.edges[machA, machB]['weight'])
 
 def get_best_node(p_queue):
     return min(p_queue, key=operator.itemgetter(2))
@@ -62,7 +63,9 @@ def assign_operation_to_machine(operation, machine_graph, machine):
 
 def get_min_FMT(operation, machine_graph, eligible_machines):
     minFMT = bigM
-
+    print(f"Operation: [job_num: {operation.job_num}, op_num: {operation.op_num}]")
+    print(operation.job_num)
+    print(eligible_machines)
     for machine in eligible_machines:
         # Get machining time for specific operation-machine combination [MT = (PT * alpha) + (ST * beta)]
         #machining_time = round( operation.processing_time * machine_graph.nodes[machine[0]]['alpha'] )
@@ -151,6 +154,7 @@ def assign_random(jobs_array, machine_graph):
                 machine = random.choice(eligible_machines)
             else:
                 # Choose the only eligible machine
+                print(eligible_machines)
                 machine = eligible_machines[0]
             # Assign the machine to the operation (and vice versa)
             assign_operation_to_machine(operation, machine_graph, machine)

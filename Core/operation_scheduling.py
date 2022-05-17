@@ -197,7 +197,13 @@ def add_next_executable_operation(job, operation, machine_graph, executable_oper
 
                         # Keep following the operation path back until the first scheduled operation is found
                         while operation.pre != None:
-                            pre_operation = [item for item in job if item.op_num == operation.pre][0]
+                            print("here")
+                            print(operation.pre)
+                            [print(x.op_num) for x in job]
+                            if type(operation.pre) is list:
+                                pre_operation = [item for item in job if item.op_num in operation.pre][0]
+                            else:
+                                pre_operation = [item for item in job if item.op_num == operation.pre][0]
                             # If a previous operation has been scheduled, add this operation to executable's list
                             if operation.pre in scheduled_operations:
                                 executable_operations = append_operation_tuple(job, operation, machine_graph, executable_operations, OS_algo)

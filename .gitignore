@@ -6,3 +6,4 @@
 /data/Benchmarks/MKS.xlsx
 /output_models
 Core/__pycache__/
+*.swp

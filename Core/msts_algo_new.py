@@ -599,10 +599,8 @@ def msts(instances_file, save_dir):
 ### BEGIN MAIN PROGRAM ###
 if __name__ == '__main__':
 
-    PCname = os.environ['COMPUTERNAME']
-
     # Output folder to save to
-    save_dir = os.path.join(base_dir, 'output_models/', get_time_stamp() + '_' + PCname)
+    save_dir = os.path.join('/home/john/Code/MSTS_FJSP/here/')
 
     try:
         os.makedirs(save_dir, exist_ok=True)
@@ -638,9 +636,10 @@ if __name__ == '__main__':
 
     # Single test instance (comment/uncomment below)
     """"""
-    test_name = "YFJS14.txt"
+    # test_name = "YFJS/YFJS01.txt"
+    test_name = "johns2.txt"
     starttime = timeit.default_timer()
-    filename = "data\Benchmarks\YFJS\\" + test_name
+    filename = "data/Benchmarks/" + test_name
     sln, mks = msts(filename, save_dir)
     task_dict[test_name] = (mks, timeit.default_timer() - starttime)
 

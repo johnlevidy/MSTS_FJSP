@@ -18,6 +18,7 @@ def change_ops_labels(operations, machines):
     base = 1
 
     for ops in operations:
+        print(ops)
         op_1 = ops[0]
         op_2 = ops[1]
         if ops[2] == "".join( [ str(label[1]), str(label[2]) ] ):
@@ -110,6 +111,9 @@ def initialise_operations(datafile):
 
         # Change operations labels to standard labelling method
         operations, machines = change_ops_labels(operations, machines)
+        print("Preprocessing")
+        print(operations)
+        print(machines)
 
         for ops in operations:
 
@@ -170,7 +174,6 @@ def initialise_operations(datafile):
         ## MACHINES ##
         # Store unique machines
         unique_machines = []
-
         for machine_set in machines:
             eligible_machines = []
             j = 2
