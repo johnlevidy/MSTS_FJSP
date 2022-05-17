@@ -1,0 +1,15 @@
+# numops, numedges, nummachines ( always one more though because it goes by range )
+# EDGE DEFINITIONS ( op_precedence )
+# operation_dense_id successor_operation_dense_id job_identifier
+4 4 0
+0 1 J1
+1 3 J1
+2 3 J1
+3 4 J1
+# MACHINE OPERATION DEFINITIONS ( what machines can perform what operations ) -- i think this is something implied by dense id / array id
+# NUM_ELIGIBLE_MACHINES, MACHINE1_ID, MACHINE1_PROCESS_TIME, MACHINE2_ID, MACHINE2_PROCESS_TIME, ...MACHINE<num_eligible>_PROCESS_TIME
+1 0 2 1 2
+1 0 3 1 3
+1 0 4 1 4
+1 0 3 1 3
+# MACHINE DEFINITIONS ( transfer times -- we'll leave blank for now )
